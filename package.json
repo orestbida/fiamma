@@ -1,0 +1,29 @@
+{
+    "name": "tiny-router",
+    "version": "0.1.0",
+    "description": "tiny router",
+    "main": "dist/fiamma.umd.js",
+    "module": "dist/fiamma.esm.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fireship-io/flamethrower.git"
+    },
+    "homepage": "https://github.com/fireship-io/flamethrower#readme",
+    "scripts": {
+        "preinstall": "npx only-allow pnpm",
+        "dev": "rollup --config ./rollup.config.mjs --watch",
+        "build": "rollup --config ./rollup.config.mjs"
+    },
+    "keywords": [],
+    "author": "Orest Bida",
+    "license": "MIT",
+    "devDependencies": {
+        "@rollup/plugin-node-resolve": "^15.1.0",
+        "@rollup/plugin-terser": "^0.4.3",
+        "rollup": "^3.26.2",
+        "terser": "^5.19.0"
+    },
+    "dependencies": {
+        "@orestbida/link-prefetcher": "^0.4.1"
+    }
+}

@@ -1,0 +1,11 @@
+#fiamma-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    transform: scaleX(0);
+    background-color: #f3754a;
+    transition: transform .3s ease, opacity .3s ease;
+    transform-origin: left;
+}
