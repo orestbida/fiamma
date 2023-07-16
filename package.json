@@ -4,6 +4,10 @@
     "description": "⚡ A tiny, fast router to make your static website feel like a SPA",
     "main": "dist/fiamma.umd.js",
     "module": "dist/fiamma.esm.js",
+    "files": [
+        "src",
+        "dist"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/orestbida/fiamma"
