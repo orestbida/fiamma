@@ -1,20 +1,20 @@
 {
     "name": "fiamma",
     "version": "0.1.0",
-    "description": "tiny router",
+    "description": "⚡ A tiny, fast router to make your static website feel like a SPA",
     "main": "dist/fiamma.umd.js",
     "module": "dist/fiamma.esm.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/fireship-io/flamethrower.git"
+        "url": "https://github.com/orestbida/fiamma"
     },
-    "homepage": "https://github.com/fireship-io/flamethrower#readme",
+    "homepage": "https://github.com/orestbida/fiamma#readme",
     "scripts": {
         "preinstall": "npx only-allow pnpm",
         "dev": "rollup --config ./rollup.config.mjs --watch",
         "build": "rollup --config ./rollup.config.mjs"
     },
-    "keywords": [],
+    "keywords": ["fiamma", "router"],
     "author": "Orest Bida",
     "license": "MIT",
     "devDependencies": {
