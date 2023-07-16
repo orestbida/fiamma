@@ -1,5 +1,13 @@
-# fiamma
-A tweaked fork of [flamethrower](https://github.com/fireship-io/flamethrower).
+# fiamma 🔥
+A fork of [flamethrower](https://github.com/fireship-io/flamethrower), with some tweaks!
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+![Size](https://img.shields.io/github/size/orestbida/fiamma/dist/fiamma.esm.js)
+[![Stable version](https://img.shields.io/github/v/release/orestbida/fiamma)](https://github.com/orestbida/fiamma/releases)
+
+
+### Note
+This library is meant to be used on statically generated websites only. It does not work in React/Wordpress.
 
 ## Installation & Usage
 Install via npm:
