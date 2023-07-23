@@ -37,11 +37,11 @@ Available events:
 
 Example:
 ```javascript
-window.addEventListener('fiamma-fetch', ()=> {
+window.addEventListener('fiamma:fetch', ()=> {
     // page fetch started
 });
 
-window.addEventListener('fiamma-end', ()=> {
+window.addEventListener('fiamma:end', ()=> {
     // page fetch ended
 });
 ```
