@@ -18,14 +18,17 @@
         "dev": "rollup --config ./rollup.config.mjs --watch",
         "build": "rollup --config ./rollup.config.mjs"
     },
-    "keywords": ["fiamma", "router"],
+    "keywords": [
+        "fiamma",
+        "router"
+    ],
     "author": "Orest Bida",
     "license": "MIT",
     "devDependencies": {
         "@rollup/plugin-node-resolve": "^15.1.0",
         "@rollup/plugin-terser": "^0.4.3",
-        "rollup": "^3.26.2",
-        "terser": "^5.19.0"
+        "rollup": "^3.28.0",
+        "terser": "^5.19.2"
     },
     "dependencies": {
         "@orestbida/link-prefetcher": "^0.4.1"
