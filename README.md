@@ -32,8 +32,8 @@ Add a `script` tag in the `head`section:
 ## Events
 Available events:
 
-* `fiamma-fetch` page fetch started
-* `fiamma-end` page fetch ended
+* `fiamma:fetch` page fetch started
+* `fiamma:end` page fetch ended
 
 Example:
 ```javascript
