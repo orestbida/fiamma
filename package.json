@@ -1,6 +1,6 @@
 {
     "name": "fiamma",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "⚡ A tiny, fast router to make your static website feel like a SPA",
     "main": "dist/fiamma.umd.js",
     "module": "dist/fiamma.esm.js",
