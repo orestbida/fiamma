@@ -2,80 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>Fiamma — How it works</title>
     <script type="module" src="./index.js"></script>
-    <link rel="stylesheet" href="./progress-bar.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>About</h1>
-    <a href="#about">#about</a><br>
-    <a href="./index.html">index</a><br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <h2 id="about">about section</h2>
-    <a href="index.html">go first page</a>
+
+    <nav id="navbar" fiamma-preserve>
+        <div class="nav-inner">
+            <a class="nav-logo" href="index.html">fiamma<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">How it works</a></li>
+                <li><a href="perf.html">Perf</a></li>
+                <li><a href="contact.html">Links</a></li>
+            </ul>
+            <span class="nav-indicator"></span>
+        </div>
+    </nav>
+
+    <div class="page">
+        <div class="container">
+
+            <h1>How it works</h1>
+            <p>Three steps on every navigation.</p>
+
+            <h2>1. Intercept the click</h2>
+            <p>A single delegated listener on <code>document</code> catches all link clicks. External links, <code>target="_blank"</code>, modifier keys, and anything with <code>fiamma-off</code> are passed through normally.</p>
+
+            <h2>2. Fetch and parse</h2>
+            <p>The target URL is fetched via XHR. The raw HTML is parsed into a detached <code>Document</code> using <code>DOMParser</code>. Non-200 responses fall back to a normal browser navigation.</p>
+
+            <h2>3. Swap the DOM</h2>
+            <p>The <code>&lt;head&gt;</code> is reconciled — stale nodes removed, new ones appended. The <code>&lt;body&gt;</code> is replaced wholesale. Body scripts re-run. Scroll resets (or jumps to a hash target). History is pushed.</p>
+
+            <hr>
+
+            <h2>Preserving elements</h2>
+            <p>Add <code>fiamma-preserve</code> and a unique <code>id</code> to any element. Before the body swap, Fiamma plucks those nodes out of the incoming document and replaces them with the live ones already on the page.</p>
+
+            <div class="note">
+                The navbar on this page has <code>id="navbar" fiamma-preserve</code>. It has never been destroyed or recreated — you can attach event listeners, store state, run animations, and they all survive navigation.
+            </div>
+
+            <pre class="code"><span class="tag">&lt;nav</span> <span class="attr">id</span>=<span class="str">"navbar"</span> <span class="attr">fiamma-preserve</span><span class="tag">&gt;</span>
+  <span class="cm">&lt;!-- lives forever --&gt;</span>
+<span class="tag">&lt;/nav&gt;</span></pre>
+
+            <h2>Events</h2>
+            <p>Hook into the lifecycle from anywhere:</p>
+
+            <pre class="code">window.addEventListener(<span class="str">'fiamma:fetch'</span>, () => { <span class="cm">/* fetch started */</span> });
+window.addEventListener(<span class="str">'fiamma:end'</span>,   () => { <span class="cm">/* DOM swapped   */</span> });</pre>
+
+        </div>
+
+        <footer>
+            <a href="https://github.com/orestbida/fiamma" target="_blank">GitHub</a> ·
+            <a href="https://npmjs.com/package/fiamma" target="_blank">npm</a>
+        </footer>
+    </div>
+
 </body>
 </html>

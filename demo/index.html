@@ -2,21 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Fiamma</title>
     <script type="module" src="./index.js"></script>
-    <link rel="stylesheet" href="./progress-bar.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Hello World</h1>
+    <nav id="navbar" fiamma-preserve>
+        <div class="nav-inner">
+            <a class="nav-logo" href="index.html">fiamma<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">How it works</a></li>
+                <li><a href="perf.html">Perf</a></li>
+                <li><a href="contact.html">Links</a></li>
+            </ul>
+            <span class="nav-indicator"></span>
+        </div>
+    </nav>
 
-    <a href="index.html">index.html</a><br>
-    <a href="#ciao">#ciao</a><br>
-    <a href="about.html">about</a><br>
-    <a href="contact.html">contact</a><br>
-    <a href="about.html" fiamma-off>about [fiamma-off]</a><br>
-    <a href="about.html#about">about#about</a><br>
-    <a href="aboust.html">404</a><br>
+    <div class="page">
+        <div class="container">
+
+            <h1>SPA navigation<br>for static sites</h1>
+            <p>Fiamma intercepts link clicks, fetches the next page, and swaps the DOM. No full reload, no framework.</p>
+            <p>~2kb minified. No dependencies.</p>
+
+            <pre class="code"><span class="kw">import</span> { Router, EnableProgressBar } <span class="kw">from</span> <span class="str">'fiamma'</span>;
+
+EnableProgressBar();
+Router();</pre>
+
+            <hr>
+
+            <h2>What it does</h2>
+            <p>Clicks on same-origin links are caught before the browser navigates. The next page is fetched in the background, the <code>&lt;head&gt;</code> is diffed, and the <code>&lt;body&gt;</code> is swapped. History is updated, scroll resets, scripts re-run.</p>
+            <p>Add <code>fiamma-preserve</code> to any element and Fiamma keeps that DOM node alive across navigations. The navbar above uses it.</p>
+
+            <hr>
+
+            <h2>Try it</h2>
+            <p>Navigate between the pages using the links above. The navbar never re-renders — watch the indicator slide. The page content fades in. The progress bar appears on slower connections.</p>
+
+        </div>
+
+        <footer>
+            <a href="https://github.com/orestbida/fiamma" target="_blank">GitHub</a> ·
+            <a href="https://npmjs.com/package/fiamma" target="_blank">npm</a>
+        </footer>
+    </div>
 </body>
 </html>
