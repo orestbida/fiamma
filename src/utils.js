@@ -26,11 +26,6 @@ export const addEvent = (el, event, listener) => el.addEventListener(event, list
 export const dispatchCustomEvent = (event, data) => dispatchEvent(new CustomEvent(FIAMMA_LABEL + ':' + event, data && {detail: data}));
 
 /**
- * @param {NodeList | NamedNodeMap} iterable
- */
-export const toArray = iterable => Array.from(iterable);
-
-/**
  * @param  {string} [url]
  */
 export const getURL = (url) => {
@@ -90,18 +85,7 @@ const invalidClickEvent = (e) => e.altKey ||
 /**
  * @param {Element} target
  */
-const getAnchor = target => {
-    let anchor = target;
-
-    for (let n=target; n.parentNode; n=n.parentNode) {
-        if (n.nodeName === 'A') {
-            anchor = n;
-            break;
-        }
-    }
-
-    return anchor;
-}
+const getAnchor = target => target.closest('a') || target;
 
 /**
  * @param  {MouseEvent} event
@@ -154,10 +138,10 @@ export const EnableProgressBar = (delay=500) => {
 
     addEvent(WINDOW, `${FIAMMA_LABEL}:progress`, ({ detail }) => {
         const { loaded, total } = detail;
-        const progressPercentage = ((loaded / total) * 100).toFixed(2);
+        const progressPercentage = (loaded / total * 100).toFixed(2);
 
         if(progressPercentage > initialPercentage)
-            barStyle.transform = `scaleX(${progressPercentage}%)`;
+            barStyle.transform = `scaleX(${progressPercentage / 100})`;
     });
 
     addEvent(WINDOW, `${FIAMMA_LABEL}:fetch`, () => {
@@ -175,7 +159,7 @@ export const EnableProgressBar = (delay=500) => {
 
             setTimeout(() => {
                 barStyle.transition = '';
-                barStyle.transform = `scaleX(${initialPercentage}%)`;
+                barStyle.transform = `scaleX(${initialPercentage / 100})`;
             }, 1);
 
         }, delay > 0 ? delay : 1);
@@ -183,7 +167,7 @@ export const EnableProgressBar = (delay=500) => {
 
     addEvent(WINDOW, `${FIAMMA_LABEL}:end`, () => {
         clearTimeout(timeout);
-        barStyle.transform = `scaleX(100%)`;
+        barStyle.transform = `scaleX(1)`;
         barStyle.opacity = '0';
     });
 }
